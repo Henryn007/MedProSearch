@@ -1,11 +1,4 @@
 <?php
-/**
- * @Packge     : Medixi
- * @Version    : 1.0
- * @Author     : Vecurosoft
- * @Author URI : https://www.templatemonster.com/authors/vecuro/
- *
- */
 
 // Block direct access
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,24 +8,24 @@ if ( ! defined( 'ABSPATH' ) ) {
     *
     * Hook for Footer Content
     *
-    * Hook medixi_footer_content
+    * Hook medprosearch_footer_content
     *
-    * @Hooked medixi_footer_content_cb 10
+    * @Hooked medprosearch_footer_content_cb 10
     *
     */
-    do_action( 'medixi_footer_content' );
+    do_action( 'medprosearch_footer_content' );
 
     if( !is_404(  ) ) {
         /**
         *
         * Hook for Back to Top Button
         *
-        * Hook medixi_back_to_top
+        * Hook medprosearch_back_to_top
         *
-        * @Hooked medixi_back_to_top_cb 10
+        * @Hooked medprosearch_back_to_top_cb 10
         *
         */
-        do_action( 'medixi_back_to_top' );
+        do_action( 'medprosearch_back_to_top' );
     }
 
     wp_footer();

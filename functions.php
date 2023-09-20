@@ -1,11 +1,4 @@
 <?php
-/**
- * @Packge     : Medixi
- * @Version    : 1.0
- * @Author     : Vecurosoft
- * @Author URI : https://www.templatemonster.com/authors/vecuro/
- *
- */
 
 // Block direct access
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,52 +11,76 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 // Constants
-require_once get_parent_theme_file_path() . '/inc/medixi-constants.php';
+require_once get_parent_theme_file_path() . '/inc/medprosearch-constants.php';
 
 //theme setup
-require_once MEDIXI_DIR_PATH_INC . 'theme-setup.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'theme-setup.php';
 
 //essential scripts
-require_once MEDIXI_DIR_PATH_INC . 'essential-scripts.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'essential-scripts.php';
 
 // Woo Hooks
-require_once MEDIXI_DIR_PATH_INC . 'woo-hooks/medixi-woo-hooks.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'woo-hooks/medprosearch-woo-hooks.php';
 
 // Woo Hooks Functions
-require_once MEDIXI_DIR_PATH_INC . 'woo-hooks/medixi-woo-hooks-functions.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'woo-hooks/medprosearch-woo-hooks-functions.php';
 
 // plugin activation
-require_once MEDIXI_DIR_PATH_FRAM . 'plugins-activation/medixi-active-plugins.php';
+require_once MEDPROSEARCH_DIR_PATH_FRAM . 'plugins-activation/medprosearch-active-plugins.php';
 
 // meta options
-require_once MEDIXI_DIR_PATH_FRAM . 'medixi-meta/medixi-config.php';
+require_once MEDPROSEARCH_DIR_PATH_FRAM . 'medixi-meta/medprosearch-config.php';
 
 // page breadcrumbs
-require_once MEDIXI_DIR_PATH_INC . 'medixi-breadcrumbs.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-breadcrumbs.php';
 
 // sidebar register
-require_once MEDIXI_DIR_PATH_INC . 'medixi-widgets-reg.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-widgets-reg.php';
 
 //essential functions
-require_once MEDIXI_DIR_PATH_INC . 'medixi-functions.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-functions.php';
 
 // helper function
-require_once MEDIXI_DIR_PATH_INC . 'wp-html-helper.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'wp-html-helper.php';
 
 // Demo Data
-require_once MEDIXI_DEMO_DIR_PATH . 'demo-import.php';
+require_once MEDPROSEARCH_DEMO_DIR_PATH . 'demo-import.php';
 
 // pagination
-require_once MEDIXI_DIR_PATH_INC . 'wp_bootstrap_pagination.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'wp_bootstrap_pagination.php';
 
-// medixi options
-require_once MEDIXI_DIR_PATH_FRAM . 'medixi-options/medixi-options.php';
+// medprosearch options
+require_once MEDPROSEARCH_DIR_PATH_FRAM . 'medprosearch-options/medprosearch-options.php';
+
+// meta options
+require_once MEDPROSEARCH_DIR_PATH_FRAM . 'medprosearch-meta/medprosearch-config.php';
+
+// page breadcrumbs
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-breadcrumbs.php';
+
+// sidebar register
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-widgets-reg.php';
+
+//essential functions
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-functions.php';
 
 // hooks
-require_once MEDIXI_DIR_PATH_HOOKS . 'hooks.php';
+require_once MEDPROSEARCH_DIR_PATH_HOOKS . 'hooks.php';
+
+// meta options
+require_once MEDPROSEARCH_DIR_PATH_FRAM . 'medprosearch-meta/medixi-config.php';
+
+// page breadcrumbs
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-breadcrumbs.php';
+
+// sidebar register
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-widgets-reg.php';
+
+//essential functions
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-functions.php';
 
 // hooks funtion
-require_once MEDIXI_DIR_PATH_HOOKS . 'hooks-functions.php';
+require_once MEDPROSEARCH_DIR_PATH_HOOKS . 'hooks-functions.php';
 
 
-require_once MEDIXI_DIR_PATH_INC . 'medixi-commoncss.php';
+require_once MEDPROSEARCH_DIR_PATH_INC . 'medprosearch-commoncss.php';

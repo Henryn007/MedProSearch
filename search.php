@@ -1,11 +1,5 @@
 <?php
-/**
- * @Packge     : Medixi
- * @Version    : 1.0
- * @Author     : Vecurosoft
- * @Author URI : https://www.templatemonster.com/authors/vecuro/
- *
- */
+
 
 // Block direct access
 if ( ! defined('ABSPATH') ) {
@@ -18,29 +12,29 @@ if ( ! defined('ABSPATH') ) {
     * 
     * Hook for Blog Start Wrapper
     *
-    * Hook medixi_blog_start_wrap
+    * Hook medprosearch_blog_start_wrap
     *
-    * @Hooked medixi_blog_start_wrap_cb 10
+    * @Hooked medprosearch_blog_start_wrap_cb 10
     *  
     */
-    do_action( 'medixi_blog_start_wrap' );
+    do_action( 'medprosearch_blog_start_wrap' );
 
     /**
     * 
     * Hook for Blog Column Start Wrapper
     *
-    * Hook medixi_blog_col_start_wrap
+    * Hook medprosearch_blog_col_start_wrap
     *
-    * @Hooked medixi_blog_col_start_wrap_cb 10
+    * @Hooked medprosearch_blog_col_start_wrap_cb 10
     *  
     */
-    do_action( 'medixi_blog_col_start_wrap' );
+    do_action( 'medprosearch_blog_col_start_wrap' );
 
     echo '<div class="row filter-active">';
         if( have_posts() ) {
             while( have_posts() ) {
                 the_post();
-                if ( is_active_sidebar( 'medixi-blog-sidebar' ) ) {
+                if ( is_active_sidebar( 'medprosearch-blog-sidebar' ) ) {
                     $column_class = 'col-md-6 filter-item';
                 }else{
                     $column_class = 'col-md-4 filter-item';
@@ -63,12 +57,12 @@ if ( ! defined('ABSPATH') ) {
                             }
 
                             echo '<div class="search-card-meta">';
-                                echo '<a href="'.esc_url( medixi_blog_date_permalink() ).'"><i class="fal fa-calendar-alt"></i>';
+                                echo '<a href="'.esc_url( medprosearch_blog_date_permalink() ).'"><i class="fal fa-calendar-alt"></i>';
                                     echo '<time datetime="'.esc_attr( get_the_date( DATE_W3C ) ).'">'.esc_html( get_the_date() ).'</time>';
                                 echo '</a>';
                                 echo '<span><i class="fal fa-eye"></i>';
-                                echo medixi_getPostViews( get_the_ID() );
-                                echo esc_html__( ' Views', 'medixi' );
+                                echo medprosearch_getPostViews( get_the_ID() );
+                                echo esc_html__( ' Views', 'medprosearch' );
                                 echo '</span>';
                             echo '</div>';
                         echo '</div>';
@@ -85,45 +79,45 @@ if ( ! defined('ABSPATH') ) {
     * 
     * Hook for Blog Pagination
     *
-    * Hook medixi_blog_pagination
+    * Hook medprosearch_blog_pagination
     *
-    * @Hooked medixi_blog_pagination_cb 10
+    * @Hooked medprosearch_blog_pagination_cb 10
     *  
     */
-    do_action( 'medixi_blog_pagination' ); 
+    do_action( 'medprosearch_blog_pagination' ); 
 
     /**
     * 
     * Hook for Blog Column End Wrapper
     *
-    * Hook medixi_blog_col_end_wrap
+    * Hook medprosearch_blog_col_end_wrap
     *
-    * @Hooked medixi_blog_col_end_wrap_cb 10
+    * @Hooked medprosearch_blog_col_end_wrap_cb 10
     *  
     */
-    do_action( 'medixi_blog_col_end_wrap' ); 
+    do_action( 'medprosearch_blog_col_end_wrap' ); 
 
     /**
     * 
     * Hook for Blog Sidebar
     *
-    * Hook medixi_blog_sidebar
+    * Hook medprosearch_blog_sidebar
     *
-    * @Hooked medixi_blog_sidebar_cb 10
+    * @Hooked medprosearch_blog_sidebar_cb 10
     *  
     */
-    do_action( 'medixi_blog_sidebar' );     
+    do_action( 'medprosearch_blog_sidebar' );     
         
     /**
     * 
     * Hook for Blog End Wrapper
     *
-    * Hook medixi_blog_end_wrap
+    * Hook medprosearch_blog_end_wrap
     *
-    * @Hooked medixi_blog_end_wrap_cb 10
+    * @Hooked medprosearch_blog_end_wrap_cb 10
     *  
     */
-    do_action( 'medixi_blog_end_wrap' );
+    do_action( 'medprosearch_blog_end_wrap' );
 
     //footer
     get_footer();

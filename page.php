@@ -1,11 +1,4 @@
 <?php
-/**
- * @Packge     : Medixi
- * @Version    : 1.0
- * @Author     : Vecurosoft
- * @Author URI : https://www.templatemonster.com/authors/vecuro/
- *
- */
  
     // Block direct access
     if( !defined( 'ABSPATH' ) ){
@@ -19,23 +12,23 @@
     * 
     * Hook for Page Start Wrapper
     *
-    * Hook medixi_page_start_wrap
+    * Hook medprosearch_page_start_wrap
     *
-    * @Hooked medixi_page_start_wrap_cb 10
+    * @Hooked medprosearch_page_start_wrap_cb 10
     *  
     */
-    do_action( 'medixi_page_start_wrap' );
+    do_action( 'medprosearch_page_start_wrap' );
 
     /**
     * 
     * Hook for Column Start Wrapper
     *
-    * Hook medixi_page_col_start_wrap
+    * Hook medprosearch_page_col_start_wrap
     *
-    * @Hooked medixi_page_col_start_wrap_cb 10
+    * @Hooked medprosearch_page_col_start_wrap_cb 10
     *  
     */
-    do_action( 'medixi_page_col_start_wrap' );
+    do_action( 'medprosearch_page_col_start_wrap' );
 
     if( have_posts() ){
       while( have_posts() ){
@@ -53,34 +46,34 @@
     * 
     * Hook for Column End Wrapper
     *
-    * Hook medixi_page_col_end_wrap
+    * Hook medprosearch_page_col_end_wrap
     *
-    * @Hooked medixi_page_col_end_wrap_cb 10
+    * @Hooked medprosearch_page_col_end_wrap_cb 10
     *  
     */
-    do_action( 'medixi_page_col_end_wrap' );
+    do_action( 'medprosearch_page_col_end_wrap' );
 
     /**
     * 
     * Hook for Page Sidebar
     *
-    * Hook medixi_page_sidebar
+    * Hook medprosearch_page_sidebar
     *
-    * @Hooked medixi_page_sidebar_cb 10
+    * @Hooked medprosearch_page_sidebar_cb 10
     *  
     */
-    do_action( 'medixi_page_sidebar' );
+    do_action( 'medprosearch_page_sidebar' );
 
     /**
     * 
     * Hook for Page End Wrapper
     *
-    * Hook medixi_page_end_wrap
+    * Hook medprosearch_page_end_wrap
     *
-    * @Hooked medixi_page_end_wrap_cb 10
+    * @Hooked medprosearch_page_end_wrap_cb 10
     *  
     */
-    do_action( 'medixi_page_end_wrap' );
+    do_action( 'medprosearch_page_end_wrap' );
 
     //footer
     get_footer();

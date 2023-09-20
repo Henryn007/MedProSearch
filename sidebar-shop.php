@@ -3,15 +3,9 @@
 	if( ! defined( 'ABSPATH' ) ){
 		exit( );
 	}
-	/**
-	* @Packge 	   : Medixi
-	* @Version     : 1.0
-	* @Author     : Vecurosoft
-    * @Author URI : https://www.templatemonster.com/authors/vecuro/
-	*
-	*/
 
-	if( ! is_active_sidebar( 'medixi-woo-sidebar' ) ){
+
+	if( ! is_active_sidebar( 'medprosearch-woo-sidebar' ) ){
 		return;
 	}
 ?>
@@ -19,7 +13,7 @@
 	<!-- Sidebar Begin -->
 	<aside class="sidebar-area">
 		<?php
-			dynamic_sidebar( 'medixi-woo-sidebar' );
+			dynamic_sidebar( 'medprosearch-woo-sidebar' );
 		?>
 	</aside>
 	<!-- Sidebar End -->

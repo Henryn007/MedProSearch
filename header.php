@@ -15,20 +15,20 @@
     *
     * Preloader
     *
-    * Hook medixi_preloader_wrap
+    * Hook medprosearch_preloader_wrap
     *
-    * @Hooked medixi_preloader_wrap_cb 10
+    * @Hooked medprosearch_preloader_wrap_cb 10
     *
     */
-    do_action( 'medixi_preloader_wrap' );
+    do_action( 'medprosearch_preloader_wrap' );
 
     /**
     *
-    * medixi header
+    * medprosearch header
     *
-    * Hook medixi_header
+    * Hook medprosearch_header
     *
-    * @Hooked medixi_header_cb 10
+    * @Hooked medprosearch_header_cb 10
     *
     */
-    do_action( 'medixi_header' );
+    do_action( 'medprosearch_header' );
