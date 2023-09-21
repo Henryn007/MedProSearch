@@ -1,13 +1,5 @@
 <?php
 
-/**
- * @Packge     : Medixi
- * @Version    : 1.0
- * @Author     : Vecurosoft
- * @Author URI : https://www.templatemonster.com/authors/vecuro/
- *
- */
-
 
 // Block direct access
 if( ! defined( 'ABSPATH' ) ){
@@ -15,24 +7,24 @@ if( ! defined( 'ABSPATH' ) ){
 }
 
  // theme option callback
-function medixi_opt( $id = null, $url = null ){
-    global $medixi_opt;
+function medprosearch_opt( $id = null, $url = null ){
+    global $medprosearch_opt;
 
     if( $id && $url ){
 
-        if( isset( $medixi_opt[$id][$url] ) && $medixi_opt[$id][$url] ){
-            return $medixi_opt[$id][$url];
+        if( isset( $medprosearch_opt[$id][$url] ) && $medprosearch_opt[$id][$url] ){
+            return $medprosearch_opt[$id][$url];
         }
     }else{
-        if( isset( $medixi_opt[$id] )  && $medixi_opt[$id] ){
-            return $medixi_opt[$id];
+        if( isset( $medprosearch_opt[$id] )  && $medprosearch_opt[$id] ){
+            return $medprosearch_opt[$id];
         }
     }
 }
 
 
 // theme logo
-function medixi_theme_logo() {
+function medprosearch_theme_logo() {
     // escaping allow html
     $allowhtml = array(
         'a'    => array(
@@ -48,21 +40,21 @@ function medixi_theme_logo() {
         $custom_logo_id = get_theme_mod( 'custom_logo' );
         $siteLogo = '';
         $siteLogo .= '<a class="logo" href="'.esc_url( $siteUrl ).'">';
-        $siteLogo .= medixi_img_tag( array(
+        $siteLogo .= medprosearch_img_tag( array(
             "class" => "img-fluid",
             "url"   => esc_url( wp_get_attachment_image_url( $custom_logo_id, 'full') )
         ) );
         $siteLogo .= '</a>';
 
         return $siteLogo;
-    } elseif( !medixi_opt('medixi_text_title') && medixi_opt('medixi_site_logo', 'url' )  ){
+    } elseif( !medprosearch_opt('medprosearch_text_title') && medprosearch_opt('medprosearch_site_logo', 'url' )  ){
 
-        $siteLogo = '<img class="img-fluid" src="'.esc_url( medixi_opt('medixi_site_logo', 'url' ) ).'" alt="'.esc_attr__( 'logo', 'medixi' ).'" />';
+        $siteLogo = '<img class="img-fluid" src="'.esc_url( medixi_opt('medprosearch_site_logo', 'url' ) ).'" alt="'.esc_attr__( 'logo', 'medprosearch' ).'" />';
         return '<a class="logo" href="'.esc_url( $siteUrl ).'">'.wp_kses_post( $siteLogo ).'</a>';
 
 
-    }elseif( medixi_opt('medixi_text_title') ){
-        return '<h2 class="mb-0"><a class="logo" href="'.esc_url( $siteUrl ).'">'.wp_kses( medixi_opt('medixi_text_title'), $allowhtml ).'</a></h2>';
+    }elseif( medprosearch_opt('medprosearch_text_title') ){
+        return '<h2 class="mb-0"><a class="logo" href="'.esc_url( $siteUrl ).'">'.wp_kses( medprosearch_opt('medprosearch_text_title'), $allowhtml ).'</a></h2>';
     }else{
         return '<h2 class="mb-0"><a class="logo" href="'.esc_url( $siteUrl ).'">'.esc_html( get_bloginfo('name') ).'</a></h2>';
     }
@@ -70,13 +62,13 @@ function medixi_theme_logo() {
 
 // custom meta id callback
 function medixi_meta( $id = '' ){
-    $value = get_post_meta( get_the_ID(), '_medixi_'.$id, true );
+    $value = get_post_meta( get_the_ID(), '_medprosearch_'.$id, true );
     return $value;
 }
 
 
 // Blog Date Permalink
-function medixi_blog_date_permalink() {
+function medprosearch_blog_date_permalink() {
     $year  = get_the_time('Y');
     $month_link = get_the_time('m');
     $day   = get_the_time('d');
@@ -85,15 +77,15 @@ function medixi_blog_date_permalink() {
 }
 
 //audio format iframe match
-function medixi_iframe_match() {
-    $audio_content = medixi_embedded_media( array('audio', 'iframe') );
+function medprosearch_iframe_match() {
+    $audio_content = medprosearch_embedded_media( array('audio', 'iframe') );
     $iframe_match = preg_match("/\iframe\b/i",$audio_content, $match);
     return $iframe_match;
 }
 
 
 //Post embedded media
-function medixi_embedded_media( $type = array() ){
+function medprosearch_embedded_media( $type = array() ){
     $content = do_shortcode( apply_filters( 'the_content', get_the_content() ) );
     $embed   = get_media_embedded_in_content( $content, $type );
 
@@ -117,25 +109,25 @@ function medixi_embedded_media( $type = array() ){
 
 
 // WP post link pages
-function medixi_link_pages(){
+function medprosearch_link_pages(){
     wp_link_pages( array(
-        'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'medixi' ) . '</span>',
+        'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'medprosearch' ) . '</span>',
         'after'       => '</div>',
         'link_before' => '<span>',
         'link_after'  => '</span>',
-        'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'medixi' ) . ' </span>%',
+        'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'medprosearch' ) . ' </span>%',
         'separator'   => '<span class="screen-reader-text">, </span>',
     ) );
 }
 
 
 // Data Background image attr
-function medixi_data_bg_attr( $imgUrl = '' ){
+function medprosearch_data_bg_attr( $imgUrl = '' ){
     return 'data-bg-img="'.esc_url( $imgUrl ).'"';
 }
 
 // image alt tag
-function medixi_image_alt( $url = '' ){
+function medprosearch_image_alt( $url = '' ){
     if( $url != '' ){
         // attachment id by url
         $attachmentid = attachment_url_to_postid( esc_url( $url ) );
@@ -156,7 +148,7 @@ function medixi_image_alt( $url = '' ){
 
 // Flat Content wysiwyg output with meta key and post id
 
-function medixi_get_textareahtml_output( $content ) {
+function medprosearch_get_textareahtml_output( $content ) {
     global $wp_embed;
 
     $content = $wp_embed->autoembed( $content );
@@ -171,24 +163,24 @@ function medixi_get_textareahtml_output( $content ) {
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
 
-function medixi_pingback_header() {
+function medprosearch_pingback_header() {
     if ( is_singular() && pings_open() ) {
         echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
     }
 }
-add_action( 'wp_head', 'medixi_pingback_header' );
+add_action( 'wp_head', 'medprosearch_pingback_header' );
 
 
 // Excerpt More
-function medixi_excerpt_more( $more ) {
+function medprosearch_excerpt_more( $more ) {
     return '...';
 }
 
-add_filter( 'excerpt_more', 'medixi_excerpt_more' );
+add_filter( 'excerpt_more', 'medprosearch_excerpt_more' );
 
 
-// medixi comment template callback
-function medixi_comment_callback( $comment, $args, $depth ) {
+// medprosearch comment template callback
+function medprosearch_comment_callback( $comment, $args, $depth ) {
         $add_below = 'comment';
     ?>
     <li <?php comment_class( array('vs-comment') ); ?>>
@@ -213,22 +205,22 @@ function medixi_comment_callback( $comment, $args, $depth ) {
                 <div class="comment-top">
                     <div class="comment-author">
                         <h4 class="name h5"><?php echo esc_html( ucwords( get_comment_author() ) ); ?></h4>
-                        <span class="commented-on mb-10"> <?php printf( esc_html__('%1$s', 'medixi'), get_comment_date() ); ?> </span>
+                        <span class="commented-on mb-10"> <?php printf( esc_html__('%1$s', 'medprosearch'), get_comment_date() ); ?> </span>
                     </div>
                     
                 </div>
                 <?php comment_text(); ?>
                 <div class="reply_and_edit">
                     <?php
-                        $reply_text = '<i class="fas fa-reply"></i>'.esc_html__( 'Reply', 'medixi' ).'';
-                        $edit_reply_text = '<i class="far fa-pencil-alt"></i>'.esc_html__( 'Edit', 'medixi' ).'';
+                        $reply_text = '<i class="fas fa-reply"></i>'.esc_html__( 'Reply', 'medprosearch' ).'';
+                        $edit_reply_text = '<i class="far fa-pencil-alt"></i>'.esc_html__( 'Edit', 'medprosearch' ).'';
                         comment_reply_link(array_merge( $args, array( 'add_below' => $add_below, 'depth' => 3, 'max_depth' => 5, 'reply_text' => $reply_text ) ) );
                     ?>
 
                     <span class="comment-edit-link pl-10"><?php edit_comment_link( $edit_reply_text, '  ', '' ); ?></span>
                 </div>
                 <?php if ( $comment->comment_approved == '0' ) : ?>
-                <p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'medixi' ); ?></p>
+                <p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'medprosearch' ); ?></p>
                 <?php endif; ?>
             </div>
         </div>
@@ -238,14 +230,14 @@ function medixi_comment_callback( $comment, $args, $depth ) {
 
 //body class
 add_filter( 'body_class', 'medixi_body_class' );
-function medixi_body_class( $classes ) {
+function medprosearch_body_class( $classes ) {
     if( class_exists('ReduxFramework') ) {
-        $medixi_blog_single_sidebar = medixi_opt('medixi_blog_single_sidebar');
-        if( ($medixi_blog_single_sidebar != '2' && $medixi_blog_single_sidebar != '3' ) || ! is_active_sidebar('medixi-blog-sidebar') ) {
+        $medprosearch_blog_single_sidebar = medprosearch_opt('medprosearch_blog_single_sidebar');
+        if( ($medprosearch_blog_single_sidebar != '2' && $medprosearch_blog_single_sidebar != '3' ) || ! is_active_sidebar('medprosearch-blog-sidebar') ) {
             $classes[] = 'no-sidebar';
         }
     } else {
-        if( !is_active_sidebar('medixi-blog-sidebar') ) {
+        if( !is_active_sidebar('medprosearch-blog-sidebar') ) {
             $classes[] = 'no-sidebar';
         }
     }
@@ -253,27 +245,27 @@ function medixi_body_class( $classes ) {
 }
 
 
-function medixi_footer_global_option(){
+function medprosearch_footer_global_option(){
 
-    // Medixi Widget Enable Disable
-    if( class_exists( 'ReduxFramework' ) && ( is_active_sidebar( 'medixi-footer-1' ) || is_active_sidebar( 'medixi-footer-2' ) || is_active_sidebar( 'medixi-footer-3' ) || is_active_sidebar( 'medixi-footer-4' ) ) ){
-        $medixi_footer_widget_enable = medixi_opt( 'medixi_footerwidget_enable' );
+    // Medprosearch Widget Enable Disable
+    if( class_exists( 'ReduxFramework' ) && ( is_active_sidebar( 'medprosearch-footer-1' ) || is_active_sidebar( 'medprosearch-footer-2' ) || is_active_sidebar( 'medprosearch-footer-3' ) || is_active_sidebar( 'medprosearch-footer-4' ) ) ){
+        $medprosearch_footer_widget_enable = medprosearch_opt( 'medprosearch_footerwidget_enable' );
     }else{
-        $medixi_footer_widget_enable = '';
+        $medprosearch_footer_widget_enable = '';
     }
 
-    // Medixi Footer Top Enable Disable
+    // Medprosearch Footer Top Enable Disable
     if( class_exists( 'ReduxFramework' ) ){
-        $medixi_footer_top_active = medixi_opt( 'medixi_disable_footer_top' );
+        $medprosearch_footer_top_active = medprosearch_opt( 'medprosearch_disable_footer_top' );
     }else{
-        $medixi_footer_top_active = '1';
+        $medprosearch_footer_top_active = '1';
     }
 
-    // Medixi Footer Bottom Enable Disable
+    // Medprosearch Footer Bottom Enable Disable
     if( class_exists( 'ReduxFramework' ) ){
-        $medixi_footer_bottom_active = medixi_opt( 'medixi_disable_footer_bottom' );
+        $medprosearch_footer_bottom_active = medprosearch_opt( 'medprosearch_disable_footer_bottom' );
     }else{
-        $medixi_footer_bottom_active = '1';
+        $medprosearch_footer_bottom_active = '1';
     }
 
     $allowhtml = array(
@@ -293,10 +285,10 @@ function medixi_footer_global_option(){
         'strong'    => array(),
         'b'         => array(),
     );
-    if( $medixi_footer_widget_enable == '1' || $medixi_footer_top_active == '1'  || $medixi_footer_bottom_active == '1' ){
+    if( $medprosearch_footer_widget_enable == '1' || $medprosearch_footer_top_active == '1'  || $medprosearch_footer_bottom_active == '1' ){
 
         echo '<div class="footer-wrapper footer-layout1">';
-            if( $medixi_footer_top_active == '1' ){
+            if( $medprosearch_footer_top_active == '1' ){
                 echo '<div class="container">';
                     echo '<div class="footer-top">';
                         echo '<div class="row align-items-center justify-content-between">';
@@ -304,7 +296,7 @@ function medixi_footer_global_option(){
                                 echo '<div class="footer1-logo bg-white">';
                                 echo '<a href="'.esc_url( home_url( ) ).'">';
                                     echo medixi_img_tag( array(
-                                        "url"   => esc_url( medixi_opt( 'medixi_footer_top_logo','url' ) ),
+                                        "url"   => esc_url( medprosearch_opt( 'medprosearch_footer_top_logo','url' ) ),
                                         
                                     ) );
                                 echo '</a>';
@@ -313,9 +305,9 @@ function medixi_footer_global_option(){
                             echo '<div class=" col-sm-6 col-md-auto pt-20 pt-sm-0 pb-20 pb-sm-0 text-center text-sm-end">';
                                 echo '<div class="footer-social">';
 
-                                    $medixi_social_icon = medixi_opt( 'medixi_social_links' );
-                                    if( ! empty( $medixi_social_icon ) && isset( $medixi_social_icon ) ){
-                                        foreach( $medixi_social_icon as $social_icon ){
+                                    $medprosearch_social_icon = medprosearch_opt( 'medprosearch_social_links' );
+                                    if( ! empty( $medprosearch_social_icon ) && isset( $medprosearch_social_icon ) ){
+                                        foreach( $medprosearch_social_icon as $social_icon ){
                                             if( ! empty( $social_icon['title'] ) ){
                                                 echo '<a href="'.esc_url( $social_icon['url'] ).'"><i class="'.esc_attr( $social_icon['title'] ).'"></i></a>';
                                             }

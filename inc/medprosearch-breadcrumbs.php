@@ -3,17 +3,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit();
 }
-/**
- *
- * @Packge      Medixi
- * @Author      Vecurosoft
- * @Author URL  https//www.vecurosoft.com
- * @version     1.0
- *
- */
 
-if ( ! function_exists( 'medixi_breadcrumbs' ) ) {
-    function medixi_breadcrumbs( $args = array() ) {
+
+if ( ! function_exists( 'medprosearch_breadcrumbs' ) ) {
+    function medprosearch_breadcrumbs( $args = array() ) {
         if ( is_front_page() ) {
             return;
         }
@@ -24,9 +17,9 @@ if ( ! function_exists( 'medixi_breadcrumbs' ) ) {
         $defaults  = array(
             'breadcrumbs_id'      => '',
             'breadcrumbs_classes' => esc_html( 'breadcrumb' ),
-            'home_title'          => esc_html__( 'Home', 'medixi' )
+            'home_title'          => esc_html__( 'Home', 'medprosearch' )
         );
-        $args    = apply_filters( 'medixi_breadcrumbs_args', wp_parse_args( $args, $defaults ) );
+        $args    = apply_filters( 'medprosearch_breadcrumbs_args', wp_parse_args( $args, $defaults ) );
 
         $args_el = array();
 
@@ -137,7 +130,7 @@ if ( ! function_exists( 'medixi_breadcrumbs' ) ) {
         if( class_exists('woocommerce') ) {
             woocommerce_breadcrumb();
         } else {
-            echo apply_filters( 'medixi_breadcrumbs_filter', $html );
+            echo apply_filters( 'medprosearch_breadcrumbs_filter', $html );
         }
 
     }
